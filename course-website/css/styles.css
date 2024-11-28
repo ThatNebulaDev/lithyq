@@ -1,0 +1,336 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dortmund', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least full viewport height */
+}
+
+header {
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto; /* This ensures the footer stays at the bottom of the page */
+}
+
+h1, h2 {
+    font-size: 2rem;
+}
+
+/* Ensure the main takes up available space */
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ensures the main content stretches and fills available space */
+}
+
+/* Content Container */
+.content-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1; /* Makes content-container grow and fill the remaining space */
+    /* This makes sure the content grows to fill the remaining space */
+}
+
+.content-container h1 {
+    text-align: center;
+    color: #6C63FF;
+}
+
+.super-text {
+    font-size: 15px;
+}
+
+/* Chapter Bars */
+.chapter-bar {
+    background-color: #fff;
+    margin: 10px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chapter-bar:hover{
+    border-color: #6C63FF;
+    background-color: #f0f0f0;
+}
+
+.chapter-bar.open:hover {
+    background-color: #fff;
+
+}
+
+.chapter-bar p {
+    margin-top: 10px;
+    word-wrap: break-word; /* Breaks long text to fit within the container */
+    overflow-wrap: break-word; /* Ensures wrapping for all text content */
+    white-space: normal; /* Allows text to wrap to the next line */
+    max-width: 100%; /* Ensures content stays within the chapter boundaries */
+}
+
+/* Chapter Title */
+.chapter-title {
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Chapter Dropdown */
+.chapter-dropdown {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.chapter-bar.open .chapter-dropdown {
+    display: block;
+}
+
+.chapter-bar.open .chapter-title {
+    background-color: #f8f9fa;
+}
+
+/* Quiz */
+.quiz {
+    margin-top: 20px;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #6C63FF;
+    color: white;
+}
+
+/* Highlight border for selected answer */
+.choice.selected {
+    border: 4px solid #6C63FF;
+}
+
+.choice {
+    background-color: #fff;
+    padding: 15px;
+    border: solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.choice:hover {
+    background-color: #f0f0f0;
+}
+
+/* Highlight borders */
+.choice.correct {
+    border: solid green;
+}
+
+.choice.incorrect {
+    border: solid red;
+}
+
+/* Global Styles for Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.navbar-logo img {
+    height: 50px; /* Adjust as needed */
+    width: auto;
+    cursor: pointer;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s ease 0.3s;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #6C63FF;
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Automatically adjust columns */
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center; /* Horizontally center the grid */
+    align-content: center; /* Vertically center the grid if needed */
+}
+
+.course-card {
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    width: 500px;
+}
+
+.course-card:hover {
+    border-color: #6C63FF;
+    background-color: #f0f0f0;
+}
+
+.course-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: #6C63FF;
+}
+
+.content-container #subscript {
+    text-align: center;    
+}
+
+.popup-box {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom of the screen */
+    left: 20px; /* Adjust the distance from the left side of the screen */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding inside the box */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1.2rem; /* Text size */
+    font-family: Arial, sans-serif; /* Font style */
+    z-index: 1000; /* Ensures it stays on top of other UI elements */
+    pointer-events: none; /* Makes the box non-interactable */
+    user-select: none; /* Prevents text selection */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1050px) {
+    /* Center the logo on mobile */
+    .navbar {
+        flex-direction: column; /* Stack the elements vertically */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+    }
+
+
+    .navbar-menu {
+        list-style: none;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        margin: 0;
+        padding: 0;
+        display: none; /* Hide the home button and menu on mobile */
+    }
+
+    .navbar-menu li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar-menu a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.3rem;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+        color: #6C63FF;
+    }
+
+    /* Content Container: Full width on smaller screens */
+    .content-container {
+        width: 100%;
+    }
+
+    /* Courses: Show one column on smaller screens */
+    .courses {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .courses a {
+        margin: auto;
+        max-width: 70%;
+    }
+
+    /* Chapter Bars: Adjust padding and make dropdown more responsive */
+    .chapter-bar {
+        padding: 10px;
+    }
+
+
+
+    .chapter-title {
+        font-size: 1.1rem;
+        padding: 8px;
+    }
+
+    .chapter-dropdown {
+        padding: 10px;
+    }
+
+    /* Adjust quiz choices grid for mobile */
+    .choices {
+        grid-template-columns: 1fr; /* Stack choices vertically */
+    }
+
+    .choice {
+        padding: 12px;
+    }
+
+    .popup-box {
+        display: none;
+    }
+}
